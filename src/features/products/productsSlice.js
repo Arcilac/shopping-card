@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   products: {
@@ -9,7 +9,7 @@ const initialState = {
     //   imageURL: "/images/1234.jpg",
     // },
   },
-};
+}
 
 export const productsSlice = createSlice({
   name: "products",
@@ -17,12 +17,12 @@ export const productsSlice = createSlice({
   reducers: {
     receivedNewProducts: (state, action) => {
       action.payload.forEach((product) => {
-        state.products[product.id] = product;
-      });
+        state.products[product.id] = product
+      })
     },
   },
-});
+})
 
-export const { receivedNewProducts } = productsSlice.actions;
+export const { receivedNewProducts } = productsSlice.actions
 
-export default productsSlice.reducer;
+export default productsSlice.reducer

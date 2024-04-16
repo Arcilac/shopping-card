@@ -1,25 +1,25 @@
-import styles from "./Cart.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { clearItem, updateQuantity, clearCart } from "./cartSlice";
+import styles from "./Cart.module.css"
+import { useDispatch, useSelector } from "react-redux"
+import { clearItem, updateQuantity, clearCart } from "./cartSlice"
 
 export default function Cart() {
-  const dispatch = useDispatch();
-  const items = useSelector((state) => state.cart.items);
-  const products = useSelector((state) => state.products.products);
-  const totals = {};
-  let total = 0;
+  const dispatch = useDispatch()
+  const items = useSelector((state) => state.cart.items)
+  const products = useSelector((state) => state.products.products)
+  const totals = {}
+  let total = 0
   for (let id in items) {
-    totals[id] = (products[id].price * items[id]).toFixed(2);
-    total += Number(totals[id]);
+    totals[id] = (products[id].price * items[id]).toFixed(2)
+    total += Number(totals[id])
   }
   function onCheckout(e) {
-    e.preventDefault();
-    dispatch(clearCart());
-    window.location.href = "/";
+    e.preventDefault()
+    dispatch(clearCart())
+    window.location.href = "/"
   }
   function onQuantityChange(e, id) {
-    const quantity = Number(e.target.value);
-    dispatch(updateQuantity({ id, quantity }));
+    const quantity = Number(e.target.value)
+    dispatch(updateQuantity({ id, quantity }))
   }
   return (
     <section className="Page">
@@ -65,5 +65,5 @@ export default function Cart() {
         <button className={styles.button}>Checkout</button>
       </form>
     </section>
-  );
+  )
 }
