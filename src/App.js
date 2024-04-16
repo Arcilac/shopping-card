@@ -1,9 +1,9 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import Products from "./features/products/Products";
-import CartLink from "./features/cart/CartLink";
-import Cart from "./features/cart/Cart";
-import "./App.css";
+import React from "react"
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"
+import Products from "./features/products/Products"
+import CartLink from "./features/cart/CartLink"
+import Cart from "./features/cart/Cart"
+import "./App.css"
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
         </Switch>
       </div>
     </Router>
-  );
+  )
 }
 
 function Home() {
@@ -39,15 +39,11 @@ function Home() {
     <section className="Page">
       <h1>Welcome to the Store!</h1>
       <figure>
-        <img
-          src="/store.jpg"
-          alt="A large old store that says 1889 THE BIG STORE"
-          width="800"
-        />
+        <img src="/store.jpg" alt="A large old store that says 1889 THE BIG STORE" width="800" />
         <figcaption>Gary Houston, CC0, via Wikimedia Commons</figcaption>
       </figure>
     </section>
-  );
+  )
 }
 
-export default App;
+export default App
