@@ -40,7 +40,7 @@ function Home() {
       <h1>Welcome to the Store!</h1>
       <figure>
         <img src="/store.jpg" alt="A large old store that says 1889 THE BIG STORE" width="800" />
-        <figcaption>Gary Houston, CC0, via Wikimedia Commons</figcaption>
+        <figcaption> Houston, CC0, via Wikimedia Commons</figcaption>
       </figure>
     </section>
   )
