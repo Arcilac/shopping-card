@@ -1,24 +1,25 @@
-import { useEffect } from "react"
-import styles from "./Products.module.css"
-import { useDispatch, useSelector } from "react-redux"
-import { receivedNewProducts } from "./productsSlice"
+import React, { useEffect } from "react"
+import { getProducts } from "../../app/api"
+import { receivedProducts } from "./productsSlice"
 import { addToCart } from "../cart/cartSlice"
+import { useAppSelector, useAppDispatch } from "../../app/hooks"
+import styles from "./Products.module.css"
 
-export default function Products() {
-  const dispatch = useDispatch()
+
+export function Products() {
+  const dispatch = useAppDispatch()
   useEffect(() => {
-    fetch("/products.json")
-      .then((products) => products.json())
-      .then((products) => {
-        dispatch(receivedNewProducts(products))
-      })
-  }, [dispatch])
-  const products = useSelector((state) => state.products.products)
+    getProducts().then((products) => {
+      dispatch(receivedProducts(products))
+    })
+  }, [])
+  const products = useAppSelector(state => state.products)
   return (
-    <section className="Page">
+    <main className="page">
+      <h1>Products</h1>
       <ul className={styles.products}>
         {Object.values(products).map((product) => (
-          <li key={product.name}>
+          <li key={product.id}>
             <article className={styles.product}>
               <figure>
                 <img src={product.imageURL} alt={product.imageAlt} />
@@ -34,6 +35,6 @@ export default function Products() {
           </li>
         ))}
       </ul>
-    </section>
+    </main>
   )
 }
